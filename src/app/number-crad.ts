@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'number-card-component',
   template: `
     <div class="box">{{ innerNumber }}</div>
-    <app-button (btnClick)="buttonPress()" text="Add"> </app-button>
+    <app-button (btnClick)="addButton()" text="Add"> </app-button>
+    <app-button (btnClick)="decreaseButton()" text="Decrease"> </app-button>
   `,
   styles: [
     `
@@ -22,13 +23,23 @@ export class NumberCardComponent implements OnInit {
 
   constructor() {}
 
-  buttonPress() {
+  addButton() {
     this.addNumber();
     this.setData();
   }
 
+  decreaseButton(){
+    this.decreaseNumber();
+    this.setData();
+  }
+
+
   addNumber() {
     this.innerNumber += 1;
+  }
+
+  decreaseNumber(){
+    this.innerNumber -= 1;
   }
 
   setData() {
